@@ -3,10 +3,16 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 
 const PORT = 3000;
+// Active UpesiPay Payment Gateway credentials
+const UPESIPAY_USERNAME = '-njfA0BRENF8_mTnNjmP';
+const UPESIPAY_PASSWORD = 'zthAuK3xMcuyRilM2cR6WEYEnTCukpskT7azOIXC';
 const UPESIPAY_AUTH_HEADER =
-  process.env.UPESIPAY_AUTH_HEADER ||
-  'Basic OHNqTUVmZlhaVDUzNS1vemQwYVc6Y1o1WmNyOEpDMU9TVTk5VVZrYlNwSjdHUElOTU9FUi1MRHhVazFibA==';
-const UPESIPAY_CHANNEL_ID = Number(process.env.UPESIPAY_CHANNEL_ID) || 99;
+  process.env.UPESIPAY_AUTH_HEADER &&
+  !process.env.UPESIPAY_AUTH_HEADER.includes('OHNq') &&
+  !process.env.UPESIPAY_AUTH_HEADER.includes('8sjM')
+    ? process.env.UPESIPAY_AUTH_HEADER
+    : 'Basic LW5qZkEwQlJFTkY4X21Ubk5qbVA6enRoQXVLM3hNY3V5UmlsTTJjUjZXRVlFblRDdWtwc2tUN2F6T0lYQw==';
+const UPESIPAY_CHANNEL_ID = 99;
 
 // In-memory store for active payment requests and callbacks
 interface TransactionRecord {
