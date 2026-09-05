@@ -277,34 +277,22 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
           )}
         </div>
       ) : (
-        <>
-          <div className="payment-instructions" id="payment-instructions">
-            <strong>How to complete payment:</strong>
-            <ol>
-              <li>Tap <strong>SEND STK PUSH</strong> below.</li>
-              <li>A real M-Pesa prompt will pop up on your mobile phone screen.</li>
-              <li>Enter your M-Pesa PIN on your phone.</li>
-              <li>Wait while we automatically confirm your payment and approve your loan!</li>
-            </ol>
-          </div>
-
-          <button
-            type="button"
-            id="continuePaymentBtn"
-            className="btn btn-green btn-block payment-button"
-            disabled={loading}
-            onClick={handleInitiateSTK}
-          >
-            {loading ? (
-              <span className="flex items-center justify-center gap-2">
-                <RefreshCw className="w-4 h-4 animate-spin" />
-                SENDING REQUEST TO PHONE...
-              </span>
-            ) : (
-              `SEND STK PUSH (${formatKES(application.serviceFee)})`
-            )}
-          </button>
-        </>
+        <button
+          type="button"
+          id="continuePaymentBtn"
+          className="btn btn-green btn-block payment-button mt-2"
+          disabled={loading}
+          onClick={handleInitiateSTK}
+        >
+          {loading ? (
+            <span className="flex items-center justify-center gap-2">
+              <RefreshCw className="w-4 h-4 animate-spin" />
+              SENDING REQUEST TO PHONE...
+            </span>
+          ) : (
+            `SEND STK PUSH (${formatKES(application.serviceFee)})`
+          )}
+        </button>
       )}
 
       {statusMessage && (
