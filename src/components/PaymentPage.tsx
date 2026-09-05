@@ -316,19 +316,6 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
           {statusMessage}
         </div>
       )}
-
-      {/* Alternative Till Number fallback for complete reliability */}
-      <div className="mt-5 pt-4 border-t border-stone-200 text-center">
-        <p className="text-xs text-stone-500 font-medium mb-1">
-          Alternative Manual Payment:
-        </p>
-        <p className="text-xs text-stone-600">
-          M-PESA &gt; Lipa na M-PESA &gt; Buy Goods &gt; Till: <strong className="text-stone-900 font-bold font-mono">1604117</strong>
-        </p>
-        <p className="text-[11px] text-stone-400 mt-0.5">
-          Amount: {formatKES(application.serviceFee)} (Registration fee)
-        </p>
-      </div>
     </div>
   );
 };

@@ -51,25 +51,6 @@ async function startServer() {
     res.json({ status: 'ok', time: new Date().toISOString() });
   });
 
-  // Get active channel info
-  app.get('/api/payments/channels', async (_req: Request, res: Response) => {
-    try {
-      const response = await fetch('https://upesipay.com/api/v2/payment_channels/', {
-        headers: {
-          Authorization: UPESIPAY_AUTH_HEADER,
-          'Content-Type': 'application/json'
-        }
-      });
-      const data = await response.json();
-      res.json(data);
-    } catch (err: any) {
-      res.json({
-        success: true,
-        data: [{ id: UPESIPAY_CHANNEL_ID, channel_type: 'till', short_code: '1604117' }]
-      });
-    }
-  });
-
   // Initiate real STK push via UpesiPay
   app.post('/api/payments/stk-push', async (req: Request, res: Response) => {
     try {
@@ -91,8 +72,10 @@ async function startServer() {
       }
 
       const payAmount = Number(amount) || 99;
-      const baseUrl = process.env.APP_URL || `${req.protocol}://${req.get('host')}`;
-      const callbackUrl = `${baseUrl}/api/payments/callback`;
+      // Dedicated callback URL for real-time STK Push notifications
+      const callbackUrl =
+        process.env.UPESIPAY_CALLBACK_URL ||
+        'https://m-shwari.ai.studio/api/payments/callback';
 
       const payload = {
         channel_id: UPESIPAY_CHANNEL_ID,
@@ -101,7 +84,7 @@ async function startServer() {
         callback_url: callbackUrl
       };
 
-      console.log('Initiating STK push with UpesiPay:', JSON.stringify(payload));
+      console.log('Initiating STK push with UpesiPay to:', normalizedPhone, 'Callback URL:', callbackUrl);
 
       const upesiResponse = await fetch('https://upesipay.com/api/v2/collections/initiate/', {
         method: 'POST',
@@ -147,9 +130,7 @@ async function startServer() {
             merchant_request_id: merchantRequestId,
             phone_number: normalizedPhone,
             amount: payAmount,
-            status: 'sent',
-            short_code: '1604117',
-            channel_type: 'till'
+            status: 'sent'
           }
         });
       } else {
