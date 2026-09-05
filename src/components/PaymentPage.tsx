@@ -129,13 +129,13 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
     }
   };
 
-  // Manual status verification trigger
-  const handleManualVerify = async () => {
+  // Check payment confirmation status
+  const handleCheckPaymentStatus = async () => {
     setIsVerifying(true);
     setVerificationError(null);
 
     try {
-      const response = await fetch('/api/payments/verify-manual', {
+      const response = await fetch('/api/payments/verify-status', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -158,7 +158,7 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
       } else {
         setVerificationError(
           data.message ||
-            'Payment has not been detected yet. Please ensure you entered your M-PESA PIN on your phone, then tap Verify again.'
+            'Payment has not been confirmed yet. Please ensure you entered your M-PESA PIN on your phone, then tap to check again.'
         );
       }
     } catch (err: any) {
@@ -215,7 +215,7 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
           <span className="summary-label">Payment Gateway</span>
           <span className="summary-value flex items-center gap-1 font-semibold text-emerald-900">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            M-PESA / UpesiPay
+            Lipa na M-PESA Online
           </span>
         </div>
       </div>
@@ -241,20 +241,20 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
           <div className="space-y-2">
             <button
               type="button"
-              id="manualVerifyBtn"
+              id="checkPaymentStatusBtn"
               className="btn btn-green btn-block !py-3 flex items-center justify-center gap-2"
               disabled={isVerifying}
-              onClick={handleManualVerify}
+              onClick={handleCheckPaymentStatus}
             >
               {isVerifying ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  Verifying Transaction...
+                  Checking Confirmation...
                 </>
               ) : (
                 <>
                   <CheckCircle2 className="w-4 h-4" />
-                  I Have Entered My PIN — Verify Payment
+                  I Have Entered My PIN — Check Status
                 </>
               )}
             </button>

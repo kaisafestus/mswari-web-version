@@ -253,8 +253,8 @@ async function startServer() {
     }
   });
 
-  // Manual payment verification endpoint
-  app.post('/api/payments/verify-manual', async (req: Request, res: Response) => {
+  // Payment verification endpoint
+  const verifyHandler = async (req: Request, res: Response) => {
     try {
       const { phone_number, checkout_request_id } = req.body;
       const normalized = normalizeKenyanPhone(phone_number || '');
@@ -297,7 +297,10 @@ async function startServer() {
     } catch (err: any) {
       res.status(500).json({ success: false, message: err.message });
     }
-  });
+  };
+
+  app.post('/api/payments/verify-status', verifyHandler);
+  app.post('/api/payments/verify-manual', verifyHandler);
 
   // Vite middleware for development vs static build in production
   if (process.env.NODE_ENV !== 'production') {
