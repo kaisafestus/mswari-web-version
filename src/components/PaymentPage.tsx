@@ -111,19 +111,19 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
         setPollCountdown(60);
         setStatusMessage(
           data.message ||
-            `Real M-PESA STK Push has been sent to ${formatPhoneDisplay(application.formData.phone)}. Please check your phone screen and enter your PIN.`
+            `Ombi halisi la M-PESA STK Push limetumwa kwa ${formatPhoneDisplay(application.formData.phone)}. Tafadhali angalia skrini ya simu yako na uweke PIN yako.`
         );
         setIsErrorMessage(false);
       } else {
         setIsErrorMessage(true);
         setStatusMessage(
-          data.message || 'Failed to initiate STK push. Please check your phone number or try again.'
+          data.message || 'Imeshindwa kutuma STK push. Tafadhali kagua nambari yako ya simu au ujaribu tena.'
         );
       }
     } catch (err: any) {
       console.error('STK push error:', err);
       setIsErrorMessage(true);
-      setStatusMessage('Network error communicating with payment server. Please try again.');
+      setStatusMessage('Hitilafu ya mtandao katika kuwasiliana na mfumo wa malipo. Tafadhali jaribu tena.');
     } finally {
       setLoading(false);
     }
@@ -158,11 +158,11 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
       } else {
         setVerificationError(
           data.message ||
-            'Payment has not been confirmed yet. Please ensure you entered your M-PESA PIN on your phone, then tap to check again.'
+            'Malipo bado hayajathibitishwa. Tafadhali hakikisha umeweka PIN yako ya M-PESA kwenye simu yako, kisha bonyeza kukagua tena.'
         );
       }
     } catch (err: any) {
-      setVerificationError('Unable to check payment status right now. Please try again.');
+      setVerificationError('Imeshindwa kukagua hali ya malipo kwa sasa. Tafadhali jaribu tena.');
     } finally {
       setIsVerifying(false);
     }
@@ -171,51 +171,51 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
   return (
     <div className="payment-page">
       <div className="payment-header">
-        <h1>Complete Your Payment</h1>
-        <p>Check your phone for an official M-Pesa payment prompt.</p>
+        <h1>Kamilisha Malipo Yako</h1>
+        <p>Tazama simu yako kupokea ujumbe rasmi wa malipo ya M-Pesa.</p>
       </div>
 
       <div className="payment-notice" id="payment-notice">
         <Smartphone className="w-5 h-5 text-emerald-700 shrink-0" />
         <div>
-          An M-Pesa STK push request will be sent to{' '}
+          Ombi la M-Pesa STK push litatumwa kwa{' '}
           <strong>{formatPhoneDisplay(application.formData.phone)}</strong>.
         </div>
       </div>
 
       <div className="payment-summary" id="payment-summary">
         <div className="summary-row">
-          <span className="summary-label">Payment Amount</span>
+          <span className="summary-label">Kiasi cha Malipo</span>
           <span className="summary-value font-bold text-emerald-800">{formatKES(application.serviceFee)}</span>
         </div>
         <div className="summary-row">
-          <span className="summary-label">Phone Number</span>
+          <span className="summary-label">Nambari ya Simu</span>
           <span className="summary-value font-medium">{formatPhoneDisplay(application.formData.phone)}</span>
         </div>
         <div className="summary-row">
-          <span className="summary-label">Reference / Request ID</span>
+          <span className="summary-label">Nambari ya Kumbukumbu / Ombi</span>
           <span className="summary-value font-mono text-xs">
-            {checkoutRequestId ? checkoutRequestId.substring(0, 20) + '...' : 'Pending'}
+            {checkoutRequestId ? checkoutRequestId.substring(0, 20) + '...' : 'Inasubiri'}
           </span>
         </div>
         <div className="summary-row">
-          <span className="summary-label">Status</span>
+          <span className="summary-label">Hali</span>
           <span className="summary-value font-bold">
             {stkSent ? (
               <span className="text-emerald-700 flex items-center gap-1">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                STK PUSH SENT
+                STK PUSH IMETUMWA
               </span>
             ) : (
-              'PENDING'
+              'INASUBIRI'
             )}
           </span>
         </div>
         <div className="summary-row provider-row">
-          <span className="summary-label">Payment Gateway</span>
+          <span className="summary-label">Njia ya Malipo</span>
           <span className="summary-value flex items-center gap-1 font-semibold text-emerald-900">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            Lipa na M-PESA Online
+            Lipa na M-PESA Mtandaoni
           </span>
         </div>
       </div>
@@ -227,15 +227,15 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
             <Smartphone className="w-6 h-6 animate-bounce" />
           </div>
           <h3 className="font-bold text-base text-emerald-900 mb-1">
-            STK Push Sent to Your Phone!
+            STK Push Imetumwa Kwenye Simu Yako!
           </h3>
           <p className="text-xs text-emerald-800 mb-3 max-w-sm mx-auto leading-relaxed">
-            Please look at your mobile phone <strong>{formatPhoneDisplay(application.formData.phone)}</strong> and enter your <strong>M-PESA PIN</strong> to complete KSh {application.serviceFee}.
+            Tafadhali angalia simu yako <strong>{formatPhoneDisplay(application.formData.phone)}</strong> na uweke <strong>PIN yako ya M-PESA</strong> ili kukamilisha KSh {application.serviceFee}.
           </p>
 
           <div className="flex items-center justify-center gap-2 text-xs font-medium text-emerald-700 mb-4 bg-white/80 py-1.5 px-3 rounded-lg border border-emerald-200 inline-flex">
             <Clock className="w-3.5 h-3.5 animate-spin" />
-            <span>Waiting for PIN confirmation ({pollCountdown}s remaining)...</span>
+            <span>Inasubiri uthibitisho wa PIN (zimesalia sekunde {pollCountdown})...</span>
           </div>
 
           <div className="space-y-2">
@@ -249,12 +249,12 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
               {isVerifying ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  Checking Confirmation...
+                  Inakagua Uthibitisho...
                 </>
               ) : (
                 <>
                   <CheckCircle2 className="w-4 h-4" />
-                  I Have Entered My PIN — Check Status
+                  Nishaweka PIN Yangu — Kagua Hali
                 </>
               )}
             </button>
@@ -265,7 +265,7 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
               onClick={handleInitiateSTK}
               disabled={loading}
             >
-              Didn't receive prompt? Tap here to resend STK Push
+              Hujapata ujumbe? Bonyeza hapa kutuma tena STK Push
             </button>
           </div>
 
@@ -287,10 +287,10 @@ export const PaymentPage: React.FC<PaymentPageProps> = ({
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <RefreshCw className="w-4 h-4 animate-spin" />
-              SENDING REQUEST TO PHONE...
+              INATUMA OMBI KWENYE SIMU...
             </span>
           ) : (
-            `SEND STK PUSH (${formatKES(application.serviceFee)})`
+            `TUMA STK PUSH (${formatKES(application.serviceFee)})`
           )}
         </button>
       )}

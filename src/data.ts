@@ -26,7 +26,7 @@ export const INITIAL_ACTIVITY: LiveActivity = {
   name: 'mark abdul',
   phone: '07** *** *89',
   amount: 'Ksh 45,000',
-  time: '1 min ago'
+  time: 'dakika 1 iliyopita'
 };
 
 export const ACTIVITIES: LiveActivity[] = [
@@ -35,35 +35,35 @@ export const ACTIVITIES: LiveActivity[] = [
     name: 'Daniel Omo...',
     phone: '07** *** 990',
     amount: 'Ksh 45,000',
-    time: '17 min ago'
+    time: 'dakika 17 zilizopita'
   },
   {
     initial: 'K',
     name: 'Samson Kiprop',
     phone: '07** *** 478',
     amount: 'Ksh 25,500',
-    time: '9 min ago'
+    time: 'dakika 9 zilizopita'
   },
   {
     initial: 'A',
     name: 'Esther Wafula',
     phone: '07** *** 631',
     amount: 'Ksh 30,000',
-    time: '10 secs ago'
+    time: 'sekunde 10 zilizopita'
   },
   {
     initial: 'J',
     name: 'Jane Kemboi',
     phone: '07** *** 214',
     amount: 'Ksh 21,000',
-    time: '4 min ago'
+    time: 'dakika 4 zilizopita'
   },
   {
     initial: 'N',
     name: 'Erick Ouma',
     phone: '07** *** 805',
     amount: 'Ksh 12,500',
-    time: '2 min ago'
+    time: 'dakika 2 zilizopita'
   }
 ];
 
@@ -78,8 +78,8 @@ export const KENYAN_COUNTIES = [
 ];
 
 export const LOAN_REASONS = [
-  'Business', 'Education', 'Emergency', 'Medical', 'Agriculture',
-  'Personal', 'Rent', 'School Fees', 'Other', 'Fundraising'
+  'Biashara', 'Elimu', 'Dharura', 'Matibabu', 'Kilimo',
+  'Binafsi', 'Kodi ya Nyumba', 'Karo ya Shule', 'Nyingineyo', 'Michango'
 ];
 
 export function formatKES(amount: number): string {

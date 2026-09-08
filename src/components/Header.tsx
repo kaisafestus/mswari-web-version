@@ -15,12 +15,12 @@ export const Header: React.FC<HeaderProps> = ({ isForm, onBack }) => {
               type="button"
               className="header-back"
               onClick={onBack}
-              aria-label="Go back"
+              aria-label="Rudi nyuma"
               id="header-back-btn"
             >
               <i className="bi bi-arrow-left" aria-hidden="true"></i>
             </button>
-            <span className="brand-name">M-SHWARI LOANS</span>
+            <span className="brand-name">M-SHWARI MKOPO</span>
             <span className="header-spacer" aria-hidden="true"></span>
           </>
         ) : (
@@ -29,10 +29,10 @@ export const Header: React.FC<HeaderProps> = ({ isForm, onBack }) => {
               <span className="brand-icon" aria-hidden="true">
                 <i className="bi bi-shield-check"></i>
               </span>
-              <span className="brand-name">M-SHWARI LOANS</span>
+              <span className="brand-name">M-SHWARI MKOPO</span>
             </div>
             <span className="secure-badge">
-              <i className="bi bi-lock-fill" aria-hidden="true"></i> Secure
+              <i className="bi bi-lock-fill" aria-hidden="true"></i> Salama
             </span>
           </>
         )}

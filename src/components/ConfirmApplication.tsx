@@ -19,26 +19,26 @@ export const ConfirmApplication: React.FC<ConfirmApplicationProps> = ({
       <StepProgress currentStep={3} />
 
       <div className="card summary-card" id="confirm-step-card">
-        <h1 className="card-title">Confirm Application</h1>
-        <p className="card-sub">You are about to confirm your application.</p>
+        <h1 className="card-title">Thibitisha Maombi</h1>
+        <p className="card-sub">Uko karibu kuthibitisha maombi yako.</p>
 
         <div className="confirm-note" id="confirm-note">
           <i className="bi bi-shield-lock-fill" aria-hidden="true"></i>
-          <span>Confirm the details below to continue to the M-pesa payment step.</span>
+          <span>Thibitisha maelezo hapa chini ili uendelee kwenye hatua ya malipo ya M-Pesa.</span>
         </div>
 
         <div className="summary-row">
-          <span className="summary-label">Requested Amount</span>
+          <span className="summary-label">Kiasi Kilichoombwa</span>
           <span className="summary-value">{formatKES(application.amount)}</span>
         </div>
 
         <div className="summary-row">
-          <span className="summary-label">Service Fee</span>
+          <span className="summary-label">Ada ya Huduma</span>
           <span className="summary-value">{formatKES(application.serviceFee)}</span>
         </div>
 
         <div className="summary-row summary-total">
-          <span className="summary-label">Total Service Fee</span>
+          <span className="summary-label">Jumla ya Ada ya Huduma</span>
           <span className="summary-value">{formatKES(application.serviceFee)}</span>
         </div>
 
@@ -49,7 +49,7 @@ export const ConfirmApplication: React.FC<ConfirmApplicationProps> = ({
             onClick={onProceedToPayment}
             id="confirm-app-btn"
           >
-            Confirm Application
+            Thibitisha Maombi
           </button>
           <button
             type="button"
@@ -57,7 +57,7 @@ export const ConfirmApplication: React.FC<ConfirmApplicationProps> = ({
             onClick={onGoBack}
             id="confirm-back-btn"
           >
-            Go Back
+            Rudi Nyuma
           </button>
         </div>
       </div>

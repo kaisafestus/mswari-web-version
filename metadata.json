@@ -1,6 +1,6 @@
 {
-  "name": "M-SHWARI LOANS — Get Fast Loan Increment",
-  "description": "M-Shwari loan increment portal. Apply quickly and securely for fast loan limit increments.",
+  "name": "M-SHWARI MKOPO",
+  "description": "Tovuti ya mikopo ya M-Shwari. Omba kwa haraka na usalama kutoka kwa simu yako.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

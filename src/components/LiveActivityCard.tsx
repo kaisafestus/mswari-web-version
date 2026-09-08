@@ -52,7 +52,7 @@ export const LiveActivityCard: React.FC = () => {
             ✓
           </span>
           <span id="activity-message">
-            User limit increased to <strong>{current.amount}</strong>
+            Kiwango cha mtumiaji kimeongezwa hadi <strong>{current.amount}</strong>
           </span>
         </div>
       </div>

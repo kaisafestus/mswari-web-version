@@ -29,10 +29,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
           <i className="bi bi-wallet2"></i>
         </div>
         <h1 className="hero-title" id="hero-title">
-          M-SHWARI LOAN INCREMENT
+          M-SHWARI MKOPO
         </h1>
         <p className="hero-sub" id="hero-sub">
-          Apply quickly from the comfort of your phone.
+          Omba kwa haraka na urahisi kutoka kwenye simu yako.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
       <div className="disclaimer-card" id="disclaimer-card">
         <i className="bi bi-info-circle" aria-hidden="true"></i>
         <p>
-          Please review all application details carefully This is done in empowerment of youths ad future generation
+          Tafadhali kagua maelezo yote ya maombi kwa makini. Hii inafanywa kwa ajili ya kuwawezesha vijana na kizazi kijacho.
         </p>
       </div>
 
@@ -50,25 +50,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
           <span className="feature-icon" aria-hidden="true">
             <i className="bi bi-shield-check"></i>
           </span>
-          <span>Secure</span>
+          <span>Salama</span>
         </div>
         <div className="feature-card" id="feature-fast">
           <span className="feature-icon" aria-hidden="true">
             <i className="bi bi-lightning-charge-fill"></i>
           </span>
-          <span>Fast</span>
+          <span>Haraka</span>
         </div>
         <div className="feature-card" id="feature-simple">
           <span className="feature-icon" aria-hidden="true">
             <i className="bi bi-check2-square"></i>
           </span>
-          <span>Simple</span>
+          <span>Rahisi</span>
         </div>
         <div className="feature-card" id="feature-support">
           <span className="feature-icon" aria-hidden="true">
             <i className="bi bi-headset"></i>
           </span>
-          <span>Support</span>
+          <span>Msaada</span>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
 
       {/* LOAN AMOUNT */}
       <h2 className="section-title" id="section-title">
-        Select Your Loan Amount
+        Chagua Kiasi cha Mkopo Wako
       </h2>
 
       {/* LOAN FORM */}
@@ -90,7 +90,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
         />
 
         {/* LOAN OPTIONS */}
-        <div className="loan-grid" id="loan-grid" role="radiogroup" aria-label="Select loan amount">
+        <div className="loan-grid" id="loan-grid" role="radiogroup" aria-label="Chagua kiasi cha mkopo">
           {LOAN_OPTIONS.map((option) => {
             const isSelected = selectedAmount === option.amount;
             return (
@@ -130,11 +130,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onApply, initialAmount
             className="btn btn-green btn-block"
             disabled={!selectedAmount}
           >
-            {selectedAmount ? `Apply for ${formatKSH(selectedAmount)}` : 'Apply for KSH —'}
+            {selectedAmount ? `Omba ${formatKSH(selectedAmount)}` : 'Omba KSH —'}
           </button>
           {!selectedAmount && (
             <p className="apply-hint" id="apply-hint">
-              Select a loan amount to continue
+              Chagua kiasi cha mkopo ili kuendelea
             </p>
           )}
         </div>
